@@ -14,7 +14,7 @@ Connect the shield to Jetson Nano and after that connect the device to a battery
 Full galvanic isolation from mains required.  
 This also applies to the monitor. Use only a monitor that is powered by the RaspberryPI.  
 #### Device pinout  
-Shiled connceted with raspbberryPI only in the netxt points   
+Shiled connceted with JetsonNano only in the netxt points   
  
   
 #### Description of the code  

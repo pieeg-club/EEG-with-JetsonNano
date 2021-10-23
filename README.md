@@ -1,4 +1,4 @@
-# Measure EEG with RaspberryPI by shield PIEEG (In progress) [ironbci.com](https://ironbci.com)
+# Measure EEG with Jetson by shield PIEEG (In progress) [ironbci.com](https://ironbci.com)
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=DIY%20Brain-Computer%20%20interface%20ironbci%20&url=https://github.com/Ildaron/ironbci&hashtags=RaspberryPI,EEG,python,opensource)
 
 ![alt tag](https://github.com/Ildaron/EEGwithRaspberryPI/blob/master/Supplementary%20files/Fig.1..jpg "general view")​
@@ -10,17 +10,12 @@
 -  [Contacts](https://github.com/Ildaron/ironbci/blob/master/README.md#8-contacts)  
 
 #### How it Works  
-Connect the shield to Raspberry PI 3 or RaspberryPI4 and after that connect the device to a battery (power supply) and connect electrodes.
+Connect the shield to Jetson Nano and after that connect the device to a battery (power supply) and connect electrodes.
 Full galvanic isolation from mains required.  
 This also applies to the monitor. Use only a monitor that is powered by the RaspberryPI.  
 #### Device pinout  
 Shiled connceted with raspbberryPI only in the netxt points   
-  43  +5V  
-  44  GND  
-  37  MOSI  
-  34  MISO  
-  35  CLKL  
-  36  CS  
+ 
   
 #### Description of the code  
 For signal processing can be used Python scripts or Brainflow   

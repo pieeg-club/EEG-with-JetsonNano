@@ -1,7 +1,7 @@
 # Measure EEG with Jetson by shield PIEEG (In progress) [ironbci.com](https://ironbci.com)
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=DIY%20Brain-Computer%20%20interface%20ironbci%20&url=https://github.com/Ildaron/ironbci&hashtags=JetsonNano,EEG,python,opensource)
 
-![alt tag](https://github.com/Ildaron/JetsonNanowithRaspberryPI/blob/master/Supplementary%20files/shield%20jetson.JPGI "general view")​
+![alt tag](https://github.com/Ildaron/JetsonNanowithRaspberryPI/blob/master/Supplementary%20files/shield%20jetson.JPG "general view")​
 
 -  [How it Works](https://github.com/Ildaron/EEGwithRaspberryPI/blob/master/README.md#how-it-works)  
 -  [Device pinout](https://github.com/Ildaron/EEGwithRaspberryPI/blob/master/README.md#device-pinout)   

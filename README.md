@@ -18,7 +18,7 @@ Shiled connceted with JetsonNano only in the netxt points
  
   
 #### Description of the code  
-For signal processing can be used Python scripts or Brainflow   
+For signal processing can be used Python scripts
 #### Citation  
 Soon will be published   
 #### Contacts  

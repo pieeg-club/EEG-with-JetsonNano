@@ -9,7 +9,7 @@ $ cmake ..
 $ make
 
 to receive static library
-gcc -fpic -shared -home/Desktop/new_spi/c-periphery-master/src super_real_time_massive.c /home/Desktop/new_spi/c-periphery-master/build/libperiphery.a -o super_real_time_massive.so
+gcc -fPIC -shared -home/Desktop/new_spi/c-periphery-master/src super_real_time_massive.c /home/Desktop/new_spi/c-periphery-master/build/libperiphery.a -o super_real_time_massive.so
 
 
 

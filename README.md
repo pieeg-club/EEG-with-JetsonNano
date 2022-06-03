@@ -16,7 +16,7 @@ This also applies to the monitor. Use only a monitor that is powered by the Rasp
 ADS1299 allow measure 8 biosignals
 
 #### Device pinout  
-Shiled connceted with JetsonNano only in the netxt points   
+Shiled connceted with JetsonNano only in the next points   
  
   
 #### Description of the code  

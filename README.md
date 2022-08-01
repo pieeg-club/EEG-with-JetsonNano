@@ -12,7 +12,7 @@
 #### How it Works  
 Connect the shield to Jetson Nano and after that connect the device to a battery (power supply) and connect electrodes.
 Full galvanic isolation from mains required.  
-This also applies to the monitor. Use only a monitor that is powered by the RaspberryPI.  
+This also applies to the monitor. Use only a monitor that is powered by the Jetson Nano.  
 ADS1299 allow measure 8 biosignals
 
 #### Device pinout  

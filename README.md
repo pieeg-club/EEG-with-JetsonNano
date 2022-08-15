@@ -24,5 +24,5 @@ For signal processing can be used Python scripts
 #### Citation  
 Soon will be published   
 #### Contacts  
-ildar.o2010@yandex.ru 
+ildarr2016@gmail.com
 

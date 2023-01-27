@@ -22,7 +22,7 @@ Shiled connceted with JetsonNano only in the next points
 #### Description of the code  
 For signal processing can be used Python scripts
 #### Citation  
-Soon will be published   
+Rakhmatulin, I. (2023). Device JNEEG to convert Jetson Nano to brain-Computer interfaces. Short report. arXiv:2301.11110  
 #### Contacts  
 ildarr2016@gmail.com
 

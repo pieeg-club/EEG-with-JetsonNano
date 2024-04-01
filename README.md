@@ -1,4 +1,4 @@
-# Measure EEG with Jetson by shield JNEEG 
+# Measure EEG with Jetson Nano by shield JNEEG 
 all updates here https://pieeg.com/  
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=DIY%20Brain-Computer%20%20interface%20ironbci%20&url=https://github.com/Ildaron/ironbci&hashtags=JetsonNano,EEG,python,opensource)
 

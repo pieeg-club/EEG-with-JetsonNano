@@ -1,15 +1,3 @@
+Just only 1 script to start measuring Bio data - 1.Graph_real_time.py  
 
-For SPI 
-From
-https://github.com/vsergeev/c-periphery
-to receive dynamic library - libperiphery.a
-$ mkdir build
-$ cd build
-$ cmake ..
-$ make
-
-to receive static library
-gcc -fPIC -shared -home/Desktop/new_spi/c-periphery-master/src super_real_time_massive.c /home/Desktop/new_spi/c-periphery-master/build/libperiphery.a -o super_real_time_massive.so -fPIC
-
-
-
+and for save data without graph 2.Save_data.py  

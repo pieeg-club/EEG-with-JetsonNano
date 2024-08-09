@@ -1,3 +1,4 @@
+# Open-source Brain-computer interface 
 # Measure EEG with Jetson Nano by shield JNEEG 
 [Manual](https://colab.research.google.com/drive/1xW6fwzVdLH83zHoorjeWai6SdZoOanfA#scrollTo=LeGmBysa4tRo)  
 to buy  https://pieeg.com/jneeg/  

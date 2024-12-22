@@ -1,28 +1,26 @@
 import spidev
 import time
-from RPi import GPIO
-GPIO.setwarnings(False) 
-GPIO.setmode(GPIO.BOARD)
-from gpiozero import LED,Button
+import Jetson.GPIO as GPIO
 from matplotlib import pyplot as plt
-#sw1 = Button(26,pull_up=True)#  37
-#from gpiozero import LED,Button
 from scipy.ndimage import gaussian_filter1d
 from scipy import signal
-import gpiod
 from time import sleep
 
-button_pin = 26
-chip = gpiod.Chip("gpiochip4")
 
-button_line = chip.get_line(button_pin)
-button_line.request(consumer = "Button", type = gpiod.LINE_REQ_DIR_IN)
-
+GPIO.setwarnings(False) 
+GPIO.setmode(GPIO.BOARD)
+input_drdy = 7
+GPIO.setup(input_drdy, GPIO.IN)
 
 spi = spidev.SpiDev()
-spi.open(0,0)
+spi.open(0,0)  
 spi.max_speed_hz=600000
+
+#spi.max_speed_hz=25000
 spi.lsbfirst=False
+#spi.cshigh=False
+#spi.cslow=True
+
 spi.mode=0b01
 spi.bits_per_word = 8
 
@@ -59,15 +57,21 @@ def read_byte(register):
  print ("data", read_reg)
  
 def send_command(command):
+# GPIO.output(18, False)
  send_data = [command]
  com_reg=spi.xfer(send_data)
+# GPIO.output(18, True)
+# time.sleep(1)
  
 def write_byte(register,data):
+# GPIO.output(18, False)
  write=0x40
  register_write=write|register
  data = [register_write,0x00,data]
  print (data)
  spi.xfer(data)
+# GPIO.output(18, True)
+# time.sleep(1)
 
 send_command (wakeup)
 send_command (stop)
@@ -118,16 +122,17 @@ x_minux_graph=5000
 x_plus_graph=250
 sample_len = 250
 
+
+
 fig, axis = plt.subplots(4, 2, figsize=(5, 5))
 plt.subplots_adjust(hspace=1)
-ch_name = 0
-ch_name_title = [1,5,2,6,3,7,4,8]
+
 axi = [(i, j) for i in range(4) for j in range(2)]
 for ax_row, ax_col in axi:
     axis[ax_row, ax_col].set_xlabel('Time')
     axis[ax_row, ax_col].set_ylabel('Amplitude')
-    axis[ax_row, ax_col].set_title('Data after pass filter Ch-' + str(ch_name_title[ch_name]))
-    ch_name = ch_name + 1    
+    axis[ax_row, ax_col].set_title('Data after pass filter')
+
     
 test_DRDY = 5 
 
@@ -166,11 +171,15 @@ def butter_highpass_filter(data, cutoff, fs, order=5):
     return y
 
 while 1:
-    button_state = button_line.get_value()
-    if button_state == 1:
-        test_DRDY = 10
-    if test_DRDY == 10 and button_state == 0:
-        test_DRDY = 0 
+    # print("before")
+        GPIO.wait_for_edge(input_drdy, GPIO.FALLING)
+    #button_state = button_line.get_value()
+    # print("after")
+    #if button_state == 1:
+       # print ("button_state 1")
+  #      test_DRDY = 10
+   # if test_DRDY == 10 and button_state == 0:
+   #     test_DRDY = 0 
 
         output=spi.readbytes(27)
         for a in range (3,25,3):
@@ -203,7 +212,7 @@ while 1:
 
             data_filt_numpy_high_1 = butter_highpass_filter(data_for_graph_1, highcut, fps)
             data_for_graph_1 = butter_lowpass_filter(data_filt_numpy_high_1, lowcut, fps)
-
+            print ('data_for_graph_1', len(data_for_graph_1[250:]))
             axis[0,0].plot(range(axis_x,axis_x+sample_lens,1),data_for_graph_1[250:], color = '#0a0b0c')  
             axis[0,0].axis([axis_x-x_minux_graph, axis_x+x_plus_graph, data_for_graph_1[50]-y_minus_graph, data_for_graph_1[150]+y_plus_graph])
 
@@ -293,7 +302,7 @@ while 1:
             axis[3,1].axis([axis_x-x_minux_graph, axis_x+x_plus_graph, data_for_graph_8[50]-y_minus_graph, data_for_graph_8[150]+y_plus_graph])
 
 
-            plt.pause(0.001)
+            plt.pause(0.000001)
             
             axis_x=axis_x+sample_lens 
             data_1ch_test = []

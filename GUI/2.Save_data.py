@@ -1,24 +1,21 @@
 import pandas as pd
 import spidev
 import time
-from RPi import GPIO
+import Jetson.GPIO as GPIO
 GPIO.setwarnings(False) 
 GPIO.setmode(GPIO.BOARD)
-from gpiozero import LED,Button
+
 from matplotlib import pyplot as plt
 from scipy.ndimage import gaussian_filter1d
 from scipy import signal
-import gpiod
-button_pin = 26
-chip = gpiod.Chip("gpiochip4")
 
-button_line = chip.get_line(button_pin)
-button_line.request(consumer = "Button", type = gpiod.LINE_REQ_DIR_IN)
+input_drdy = 7
+GPIO.setup(input_drdy, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 from time import sleep
 spi = spidev.SpiDev()
 spi.open(0,0)
-spi.max_speed_hz=600000
+spi.max_speed_hz=100000
 
 #spi.max_speed_hz=25000
 spi.lsbfirst=False
@@ -146,7 +143,7 @@ lowcut = 10
 #data_before_1 = data_before_2 = data_before_3 = data_before_4 = data_before_5 = data_before_6 = data_before_7 = data_before_8 = [0]*250
 
 while 1:
-    button_state = button_line.get_value()
+    button_state = GPIO.input(input_drdy)
     if button_state == 1:
         test_DRDY = 10
     if test_DRDY == 10 and button_state == 0:
@@ -165,24 +162,19 @@ while 1:
             result[int (channel_num)]=round(1000000*4.5*(voltage_1_after_convert/16777215),2)
            #a print (channel_num, result[int (channel_num)])
         data_1ch_test.append(result[1])
-        #print ("data_1ch_test", data_1ch_test)
+
         data_2ch_test.append(result[2])
-        #print ("data_2ch_test", data_2ch_test)
+
         data_3ch_test.append(result[3])
         data_4ch_test.append(result[4])
         data_5ch_test.append(result[5])
         data_6ch_test.append(result[6])
         data_7ch_test.append(result[7])
         data_8ch_test.append(result[8])
-        
-        #axis[0].plot(range(axis_x,axis_x+sample_lens,1),data_for_graph_1[250:], color = '#0a0b0c')  
-        #axis[0].axis([axis_x-x_minux_graph, axis_x+x_plus_graph, data_for_graph_1[50]-y_minus_graph, data_for_graph_1[150]+y_plus_graph])
-        #print (len(data_1ch_test))
+
 
         if len(data_1ch_test)==10000:
-            #print (combined_data)
-            #import sys
-            #sys.exit()
+
             
             data_dict = {
                 'data_1ch_test': data_1ch_test,
@@ -196,7 +188,10 @@ while 1:
                         }
 
 # Convert dictionary to DataFrame
+
             df = pd.DataFrame(data_dict)
-            df.to_excel("output3.xlsx", index=False)  # Change "output.xlsx" to your desired file name
+            df.to_excel("1ch_test.xlsx", index=False)  # Change "output.xlsx" to your desired file name
+            import sys
             print (df)
+            sys.exit()
 spi.close()

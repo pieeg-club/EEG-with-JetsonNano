@@ -16,6 +16,8 @@ Connect the shield to Jetson Nano and after that connect the device to a battery
 Full galvanic isolation from mains required.  
 This also applies to the monitor. Use only a monitor that is powered by the Jetson Nano.  
 ADS1299 allow measure 8 biosignals
+![alt tag](https://github.com/pieeg-club/EEG-with-JetsonNano/blob/master/Supplementary%20files/jneeg1.jpg "connect")
+
 
 #### Device pinout  
 Shiled connected with JetsonNano only in the next points   

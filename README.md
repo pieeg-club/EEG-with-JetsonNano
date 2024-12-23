@@ -28,5 +28,5 @@ For signal processing can be used Python scripts
 #### Citation  
 Rakhmatulin, I. (2023). Device JNEEG to convert Jetson Nano to brain-Computer interfaces. Short report. arXiv:2301.11110  
 #### Contacts  
-ildarr2016@gmail.com
+pieeg@pieeg.com  
 https://pieeg.com/

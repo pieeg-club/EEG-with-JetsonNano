@@ -18,8 +18,8 @@ This also applies to the monitor. Use only a monitor that is powered by the Jets
 ADS1299 allow measure 8 biosignals
 
 #### Device pinout  
-Shiled connceted with JetsonNano only in the next points   
- 
+Shiled connected with JetsonNano only in the next points   
+![alt tag](https://github.com/pieeg-club/EEG-with-JetsonNano/blob/master/Supplementary%20files/jneeg.jpeg "pins")
   
 #### Description of the code  
 For signal processing can be used Python scripts

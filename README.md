@@ -18,6 +18,8 @@ This also applies to the monitor. Use only a monitor that is powered by the Jets
 ADS1299 allow measure 8 biosignals
 ![alt tag](https://github.com/pieeg-club/EEG-with-JetsonNano/blob/master/Supplementary%20files/jneeg1.jpg "connect")
 
+JNEEG included to [PiEEG-Server software](https://github.com/pieeg-club/PiEEG-server), PiEEG-Server Software [Doc](https://pieeg-server-doc.vercel.app/)   
+<img src="https://github.com/pieeg-club/ironbci/blob/master/Supplementary%20files/imahe_2.png" alt="general view" title="general view" width="90%" height="90%">
 
 #### Device pinout  
 Shiled connected with JetsonNano only in the next points   
